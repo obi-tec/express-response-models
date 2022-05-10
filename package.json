@@ -1,6 +1,6 @@
 {
   "name": "@obi-tec/express-response-models",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "A simple library to manage response (success or error) using express library",
   "main": "src/index.js",
   "private": false,
