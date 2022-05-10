@@ -72,6 +72,9 @@ After declaring in your main file, you are able to use this library to respond t
 - An error request
   ``` javascript
     throw new res.ErrorHttp('Error message', 400, 'api-name-400_error-message');
+
+    // OR just
+    throw new ErrorHttp('Error message', 400, 'api-name-400_error-message');
   ```
 <br>
 <a name="status"></a>
