@@ -30,7 +30,7 @@ See all tags clicking <a href="https://github.com/obi-tec/express-response-model
 
 <br>
 
-### Using DatabaseConnection
+### Usage
 In your main root file, where you import express library, you must set the following settings in middleware:
 
 ``` javascript
