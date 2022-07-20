@@ -47,14 +47,18 @@ module.exports.success = async (res, body = null, statusCode = 200, headers = nu
  * @param {object} error
  * @returns {any}
  */
-module.exports.error = (res, error) => {
+module.exports.error = (res, error, preserveBody = false) => {
   logger.error('Error response', error);
 
-  let statusCode  = error?.httpStatusCode || 500;
-  const body = {};
+  let statusCode = error?.httpStatusCode || 500;
+  let body       = {};
   if (error.isAxiosError) {
-    statusCode = error.response.status;
-    body.code = error.response.data?.code || 500;
+    if (preserveBody) {
+      body = { ...error.response.data };
+    }
+
+    statusCode   = error.response.status;
+    body.code    = error.response.data?.code || 500;
     body.message = error.response.data?.message || error.message;
   } else {
     body.code = error?.businessStatusCode || 'api_internal-error';
