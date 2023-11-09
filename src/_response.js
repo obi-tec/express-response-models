@@ -2,7 +2,7 @@
 const logger = require('@obi-tec/logger-console');
 
 /**
- * @param {import('express').Response} res 
+ * @param {import('express').Response} res
  * @param {object} body
  * @param {Number} statusCode
  * @param {object} headers
@@ -27,23 +27,23 @@ const _createResponse = (res, body, statusCode, headers, cache = 0) => {
     return res.status(statusCode).json(body);
   }
 
-  return res.status(statusCode);
+  return res.status(statusCode).send();
 };
 
 /**
- * @param {import('express').Response} res 
+ * @param {import('express').Response} res
  * @param {object} body
  * @param {Number} statusCode
  * @param {object} headers
  * @param {number} cache
  * @returns {any}
  */
-module.exports.success = async (res, body = null, statusCode = 200, headers = null, cache = 0) => {
+module.exports.success = (res, body = null, statusCode = 200, headers = null, cache = 0) => {
   return _createResponse(res, body, statusCode, headers, cache);
 };
 
 /**
- * @param {import('express').Response} res 
+ * @param {import('express').Response} res
  * @param {object} error
  * @returns {any}
  */
