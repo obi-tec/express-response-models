@@ -6,6 +6,7 @@ name: Publish Package NPM
 on:
   release:
     types: [created]
+  workflow_dispatch:
 
 permissions:
   id-token: write  # Required for OIDC
@@ -34,4 +35,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
           scope: '@obi-tec'
       - run: npm ci
-      - run: npm publish --access public
+      - run: npm publish --access public --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
