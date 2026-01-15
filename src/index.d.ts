@@ -6,7 +6,7 @@ declare module '@obi-tec/express-response-models' {
     success(res: express.Response, body?: any, statusCode?: number, headers?: any, cache?: number): void;
     error(res: express.Response, error: any, preserveBody?: boolean): any;
   }
-  
+
   type LogType = 'warn' | 'error' | 'info' | 'debug';
 
   export class ErrorHttp extends Error {
@@ -19,7 +19,7 @@ declare module '@obi-tec/express-response-models' {
     );
     name: string;
     httpStatusCode: number;
-    businessStatusCode: number;
+    businessStatusCode: string;
     logType: LogType;
     originalError?: {
       name: string;
